@@ -1,7 +1,8 @@
 function Name() {
   return (
   
-    <div className="text-green-400 ">
+    <div className="w-full px-2 mt-10">
+      <div className="text-green-300 text-[10px] sm:text-xs font-mono leading-tight whitespace-pre-wrap break-words">
       <p
         style={{
           fontFamily: '"Lucida Console", monospace',
@@ -25,7 +26,9 @@ function Name() {
                                                                                             
         `}
       </p>
+      </div>
     </div>
+
     
   );
 }
