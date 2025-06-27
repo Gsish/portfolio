@@ -8,7 +8,7 @@ createRoot(document.getElementById('root')).render(
   <>
   <StrictMode>
     <BrowserRouter>
-      <div className='pl-50'><App /></div>
+      <div><App /></div>
     </BrowserRouter>
   </StrictMode>
   </>
