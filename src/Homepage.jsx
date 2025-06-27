@@ -1,4 +1,4 @@
-import Glitch from './components/Glitch.jsx';
+
 import Navbar from './components/Navbar.jsx';
 import Name from './components/name.jsx';
 import Assic from './components/Assic.jsx';
@@ -8,7 +8,7 @@ import Expertise from './components/Exp.jsx';
 export default function HomePage() {
   return (
     <>
-      <Glitch />
+      
       <Navbar />
 
       {/* Content Container */}

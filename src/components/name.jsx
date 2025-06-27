@@ -1,3 +1,6 @@
+import React from 'react';
+import './Name.css'; // Make sure this CSS file exists and is linked
+
 export default function Name() {
   const asciiText = `
  ▄▄    ▄ ▄▄▄ ▄▄▄▄▄▄   ▄▄▄▄▄▄ ▄▄    ▄     ▄▄▄ ▄▄▄▄▄▄ ▄▄    ▄    ▄▄▄▄▄▄▄ ▄▄▄▄▄▄▄ ▄▄    ▄ ▄▄▄▄▄▄ ▄     ▄ ▄▄▄▄▄▄ ▄▄    ▄ ▄▄▄▄▄▄▄ 
@@ -9,17 +12,34 @@ export default function Name() {
 █▄█  █▄▄█▄▄▄█▄▄▄█  █▄█▄█ █▄▄█▄█  █▄▄█▄▄▄▄▄▄▄█▄█ █▄▄█▄█  █▄▄█  █▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█▄█  █▄▄█▄█ █▄▄█▄▄█ █▄▄█▄█ █▄▄█▄█  █▄▄█▄▄▄▄▄▄▄█
   `;
 
+  // Define a simple ASCII text for mobile, or a plain text fallback
+  const mobileAsciiText = `
+_  _ _  _ ___ ____ ____ 
+|  | |\\|  |  |__| |__/ 
+|_ |_| \\  |  |  | |  \\ 
+  `; 
+
   return (
     <div className="w-full px-2 mt-10 pl-20">
-      {/* This `pre` element will be hidden by default (on small screens) and only shown on medium screens and larger. */}
-      <pre className="hidden md:block text-green-300 text-xs font-mono leading-tight whitespace-pre">
-        {asciiText}
-      </pre>
+      {/* Desktop/Larger screen version */}
+      {/* Container to prevent animation overflow if characters briefly move out of bounds */}
+      <div className="hidden md:block relative overflow-hidden"> 
+        {/* Changed whitespace-pre to whitespace-pre-wrap */}
+        <pre className="vibrating-text text-green-300 text-xs font-mono leading-tight whitespace-pre-wrap">
+          {asciiText}
+        </pre>
+      </div>
 
-      {/* This `h1` element will be hidden on medium screens and larger, but visible on small screens. */}
-      <h1 className="md:hidden text-green-300 text-2xl font-bold text-center">
-        Your Name
-      </h1>
+      {/* Mobile-specific version (simplified ASCII or plain text) */}
+      {mobileAsciiText ? (
+        <pre className="md:hidden text-green-300 text-[8px] sm:text-[10px] font-mono leading-tight whitespace-pre-wrap text-center"> {/* Also added whitespace-pre-wrap here, though mobileAsciiText is small */}
+          {mobileAsciiText}
+        </pre>
+      ) : (
+        <h1 className="md:hidden text-green-300 text-2xl font-bold text-center">
+          Your Name
+        </h1>
+      )}
     </div>
   );
 }
