@@ -13,7 +13,7 @@ export default function Assic({ fullText }) {
       } else {
         clearInterval(interval);
       }
-    }, 20);
+    }, 200);
 
     return () => clearInterval(interval);
   }, [fullText]); // <-- important dependency!
